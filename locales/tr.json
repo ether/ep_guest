@@ -5,6 +5,6 @@
 			"MuratTheTurkish"
 		]
 	},
-	"ep_readonly_guest_login": "Oturum aç",
-	"ep_readonly_guest_logout": "Oturumu Kapat"
+	"ep_guest_login": "Oturum aç",
+	"ep_guest_logout": "Oturumu Kapat"
 }

@@ -4,6 +4,6 @@
 			"1917 Ekim Devrimi"
 		]
 	},
-	"ep_readonly_guest_login": "Cı kewe",
-	"ep_readonly_guest_logout": "Bıveciyê"
+	"ep_guest_login": "Cı kewe",
+	"ep_guest_logout": "Bıveciyê"
 }

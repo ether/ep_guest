@@ -4,6 +4,6 @@
 			"Filipinayzd"
 		]
 	},
-	"ep_readonly_guest_login": "Lumoog",
-	"ep_readonly_guest_logout": "Lumuwas"
+	"ep_guest_login": "Lumoog",
+	"ep_guest_logout": "Lumuwas"
 }

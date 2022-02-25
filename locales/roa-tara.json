@@ -4,6 +4,6 @@
 			"Joetaras"
 		]
 	},
-	"ep_readonly_guest_login": "Tràse",
-	"ep_readonly_guest_logout": "Isse"
+	"ep_guest_login": "Tràse",
+	"ep_guest_logout": "Isse"
 }

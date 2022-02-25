@@ -4,6 +4,6 @@
 			"Mguix"
 		]
 	},
-	"ep_readonly_guest_login": "Inicia sessió",
-	"ep_readonly_guest_logout": "Finalitza la sessió"
+	"ep_guest_login": "Inicia sessió",
+	"ep_guest_logout": "Finalitza la sessió"
 }

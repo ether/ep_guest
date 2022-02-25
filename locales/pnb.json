@@ -4,6 +4,6 @@
 			"Abbas dhothar"
 		]
 	},
-	"ep_readonly_guest_login": "لاگ ان",
-	"ep_readonly_guest_logout": "باہر آؤ"
+	"ep_guest_login": "لاگ ان",
+	"ep_guest_logout": "باہر آؤ"
 }

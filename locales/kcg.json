@@ -5,6 +5,6 @@
 			"Kambai Akau"
 		]
 	},
-	"ep_readonly_guest_login": "Nwuo mami",
-	"ep_readonly_guest_logout": "Ghwut ta̱usa"
+	"ep_guest_login": "Nwuo mami",
+	"ep_guest_logout": "Ghwut ta̱usa"
 }

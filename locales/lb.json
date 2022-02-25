@@ -4,6 +4,6 @@
 			"Robby"
 		]
 	},
-	"ep_readonly_guest_login": "Aloggen",
-	"ep_readonly_guest_logout": "Ausloggen"
+	"ep_guest_login": "Aloggen",
+	"ep_guest_logout": "Ausloggen"
 }

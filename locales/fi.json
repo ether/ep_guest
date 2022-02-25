@@ -4,6 +4,6 @@
 			"Maantietäjä"
 		]
 	},
-	"ep_readonly_guest_login": "Kirjaudu sisään",
-	"ep_readonly_guest_logout": "Kirjaudu ulos"
+	"ep_guest_login": "Kirjaudu sisään",
+	"ep_guest_logout": "Kirjaudu ulos"
 }

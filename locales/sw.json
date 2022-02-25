@@ -4,6 +4,6 @@
 			"Andibecker"
 		]
 	},
-	"ep_readonly_guest_login": "Ingia",
-	"ep_readonly_guest_logout": "Toka"
+	"ep_guest_login": "Ingia",
+	"ep_guest_logout": "Toka"
 }

@@ -6,7 +6,7 @@ const authorManager = require('ep_etherpad-lite/node/db/AuthorManager');
 const log4js = require('ep_etherpad-lite/node_modules/log4js');
 const plugins = require('ep_etherpad-lite/static/js/pluginfw/plugin_defs');
 
-const pluginName = 'ep_readonly_guest';
+const pluginName = 'ep_guest';
 const logger = log4js.getLogger(pluginName);
 let user;
 

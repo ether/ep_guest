@@ -4,6 +4,6 @@
 			"列维劳德"
 		]
 	},
-	"ep_readonly_guest_login": "登录",
-	"ep_readonly_guest_logout": "注销"
+	"ep_guest_login": "登录",
+	"ep_guest_logout": "注销"
 }

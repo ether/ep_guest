@@ -4,6 +4,6 @@
 			"Fitoschido"
 		]
 	},
-	"ep_readonly_guest_login": "Acceder",
-	"ep_readonly_guest_logout": "Salir"
+	"ep_guest_login": "Acceder",
+	"ep_guest_logout": "Salir"
 }

@@ -4,6 +4,6 @@
 			"PastelKos"
 		]
 	},
-	"ep_readonly_guest_login": "Συνδεῖσθαι",
-	"ep_readonly_guest_logout": "Ἐξέρχεσθαι"
+	"ep_guest_login": "Συνδεῖσθαι",
+	"ep_guest_logout": "Ἐξέρχεσθαι"
 }

@@ -5,6 +5,6 @@
 			"Eduardoaddad"
 		]
 	},
-	"ep_readonly_guest_login": "Entrar",
-	"ep_readonly_guest_logout": "Sair"
+	"ep_guest_login": "Entrar",
+	"ep_guest_logout": "Sair"
 }

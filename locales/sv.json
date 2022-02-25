@@ -4,6 +4,6 @@
 			"WikiPhoenix"
 		]
 	},
-	"ep_readonly_guest_login": "Logga in",
-	"ep_readonly_guest_logout": "Logga ut"
+	"ep_guest_login": "Logga in",
+	"ep_guest_logout": "Logga ut"
 }

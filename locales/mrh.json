@@ -4,6 +4,6 @@
 			"Teitei Para"
 		]
 	},
-	"ep_readonly_guest_login": "A Ngia",
-	"ep_readonly_guest_logout": "Pua"
+	"ep_guest_login": "A Ngia",
+	"ep_guest_logout": "Pua"
 }

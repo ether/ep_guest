@@ -4,6 +4,6 @@
 			"Verdy p"
 		]
 	},
-	"ep_readonly_guest_login": "Se connecter",
-	"ep_readonly_guest_logout": "Se déconnecter"
+	"ep_guest_login": "Se connecter",
+	"ep_guest_logout": "Se déconnecter"
 }

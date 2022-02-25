@@ -4,6 +4,6 @@
 			"Izendegi"
 		]
 	},
-	"ep_readonly_guest_login": "Hasi saioa",
-	"ep_readonly_guest_logout": "Itxi saioa"
+	"ep_guest_login": "Hasi saioa",
+	"ep_guest_logout": "Itxi saioa"
 }

@@ -1,11 +1,11 @@
 {
-  "name": "ep_readonly_guest",
-  "version": "1.0.46",
+  "name": "ep_guest",
+  "version": "1.0.0",
   "description": "Etherpad plugin that grants read-only access to users that are not logged in.",
   "main": "index.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/ether/ep_readonly_guest.git"
+    "url": "https://github.com/ether/ep_guest.git"
   },
   "keywords": [
     "auth",
@@ -16,9 +16,9 @@
   ],
   "license": "Apache-2.0",
   "bugs": {
-    "url": "https://github.com/ether/ep_readonly_guest/issues"
+    "url": "https://github.com/ether/ep_guest/issues"
   },
-  "homepage": "https://github.com/ether/ep_readonly_guest#readme",
+  "homepage": "https://github.com/ether/ep_guest#readme",
   "dependencies": {
     "cheerio": "^0.22.0"
   },

@@ -4,6 +4,6 @@
 			"Pittigrilli"
 		]
 	},
-	"ep_readonly_guest_login": "Einloggen",
-	"ep_readonly_guest_logout": "Ausloggen"
+	"ep_guest_login": "Einloggen",
+	"ep_guest_logout": "Ausloggen"
 }

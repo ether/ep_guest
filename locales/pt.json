@@ -4,6 +4,6 @@
 			"Guilha"
 		]
 	},
-	"ep_readonly_guest_login": "Log In",
-	"ep_readonly_guest_logout": "Log Out"
+	"ep_guest_login": "Log In",
+	"ep_guest_logout": "Log Out"
 }

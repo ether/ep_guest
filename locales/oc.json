@@ -4,6 +4,6 @@
 			"Guilhelma"
 		]
 	},
-	"ep_readonly_guest_login": "Connectatz-vos",
-	"ep_readonly_guest_logout": "Se desconnectar"
+	"ep_guest_login": "Connectatz-vos",
+	"ep_guest_logout": "Se desconnectar"
 }

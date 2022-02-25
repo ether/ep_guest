@@ -4,6 +4,6 @@
 			"Andibecker"
 		]
 	},
-	"ep_readonly_guest_login": "เข้าสู่ระบบ",
-	"ep_readonly_guest_logout": "ออกจากระบบ"
+	"ep_guest_login": "เข้าสู่ระบบ",
+	"ep_guest_logout": "ออกจากระบบ"
 }

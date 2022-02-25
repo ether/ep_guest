@@ -4,6 +4,6 @@
 			"Besnik b"
 		]
 	},
-	"ep_readonly_guest_login": "Hyni",
-	"ep_readonly_guest_logout": "Dilni"
+	"ep_guest_login": "Hyni",
+	"ep_guest_logout": "Dilni"
 }

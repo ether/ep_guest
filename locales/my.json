@@ -4,6 +4,6 @@
 			"Dr Lotus Black"
 		]
 	},
-	"ep_readonly_guest_login": "အကောင့်ထဲဝင်ရန်",
-	"ep_readonly_guest_logout": "အကောင့်ထွက်ရန်"
+	"ep_guest_login": "အကောင့်ထဲဝင်ရန်",
+	"ep_guest_logout": "အကောင့်ထွက်ရန်"
 }

@@ -4,6 +4,6 @@
 			"Ghose"
 		]
 	},
-	"ep_readonly_guest_login": "Conectar",
-	"ep_readonly_guest_logout": "Desconectar"
+	"ep_guest_login": "Conectar",
+	"ep_guest_logout": "Desconectar"
 }

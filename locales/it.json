@@ -4,6 +4,6 @@
 			"Beta16"
 		]
 	},
-	"ep_readonly_guest_login": "Entra",
-	"ep_readonly_guest_logout": "Esci"
+	"ep_guest_login": "Entra",
+	"ep_guest_logout": "Esci"
 }

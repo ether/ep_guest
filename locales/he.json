@@ -4,6 +4,6 @@
 			"YaronSh"
 		]
 	},
-	"ep_readonly_guest_login": "כניסה",
-	"ep_readonly_guest_logout": "יציאה"
+	"ep_guest_login": "כניסה",
+	"ep_guest_logout": "יציאה"
 }

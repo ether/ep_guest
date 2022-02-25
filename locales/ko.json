@@ -4,6 +4,6 @@
 			"Ykhwong"
 		]
 	},
-	"ep_readonly_guest_login": "로그인",
-	"ep_readonly_guest_logout": "로그아웃"
+	"ep_guest_login": "로그인",
+	"ep_guest_logout": "로그아웃"
 }

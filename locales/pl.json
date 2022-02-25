@@ -4,6 +4,6 @@
 			"Kareyac"
 		]
 	},
-	"ep_readonly_guest_login": "Zaloguj się",
-	"ep_readonly_guest_logout": "Wyloguj"
+	"ep_guest_login": "Zaloguj się",
+	"ep_guest_logout": "Wyloguj"
 }

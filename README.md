@@ -1,6 +1,6 @@
-![Publish Status](https://github.com/ether/ep_readonly_guest/workflows/Node.js%20Package/badge.svg) ![Backend Tests Status](https://github.com/ether/ep_readonly_guest/workflows/Backend%20tests/badge.svg)
+![Publish Status](https://github.com/ether/ep_guest/workflows/Node.js%20Package/badge.svg) ![Backend Tests Status](https://github.com/ether/ep_guest/workflows/Backend%20tests/badge.svg)
 
-# ep\_readonly\_guest
+# ep\_guest
 
 ![Screenshot](docs/img/screenshot.png)
 
@@ -12,13 +12,17 @@ user drop-down list forces the user to authenticate via Etherpad's built-in HTTP
 basic authentication or via an authentication plugin (if one is installed).
 After logging in, the "log in" button becomes a "log out" button.
 
+This is a fork of
+[ep\_readonly\_guest](https://github.com/ether/ep_readonly_guest) that allows
+admins to relax the read-only restriction.
+
 ## Configuration
 
-Etherpad's `requireAuthentication` setting must be `true`. All
-ep\_readonly\_guest settings are optional, with the defaults shown below:
+Etherpad's `requireAuthentication` setting must be `true`. All ep\_guest
+settings are optional, with the defaults shown below:
 
 ```json
-  "ep_readonly_guest": {
+  "ep_guest": {
     "guest_username": "guest",
     "guest_displayname": "Read-Only Guest"
   },
@@ -32,7 +36,8 @@ ep\_readonly\_guest settings are optional, with the defaults shown below:
 
 ## Copyright and License
 
-Copyright © the ep\_reaonly\_guest authors and contributors
+Copyright © 2022 the ep\_guest authors and contributors\
+Copyright © 2020–2022 the ep\_reaonly\_guest authors and contributors
 
 Licensed under the [Apache License, Version 2.0](LICENSE) (the "License"); you
 may not use this file except in compliance with the License. You may obtain a

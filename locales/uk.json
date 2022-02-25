@@ -5,6 +5,6 @@
 			"Ice bulldog"
 		]
 	},
-	"ep_readonly_guest_login": "Увійти",
-	"ep_readonly_guest_logout": "Вийти"
+	"ep_guest_login": "Увійти",
+	"ep_guest_logout": "Вийти"
 }

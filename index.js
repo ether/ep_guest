@@ -148,8 +148,7 @@ exports.loadSettings = async (hookName, {settings}) => {
   //   - set to null: Users can change the guest user's display name.
   //   - empty string: The display name is hard-coded to the empty string.
   if (user.displayname === undefined) user.displayname = 'Read-Only Guest';
-  user.readOnly = true;
-  user.is_admin = false;
+  if (user.readOnly == null) user.readOnly = true;
 };
 
 exports.preAuthorize = (hookName, {req}, cb) => {

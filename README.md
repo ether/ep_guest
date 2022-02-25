@@ -4,7 +4,9 @@
 
 ![Screenshot](docs/img/screenshot.png)
 
-Etherpad plugin that grants read-only access to users that are not logged in.
+Etherpad plugin that grants limited access to users that are not logged in via
+another authentication plugin such as
+[ep\_openid\_connect](https://www.npmjs.com/package/ep_openid_connect).
 
 When a user first visits Etherpad, they will be "authenticated" as a guest user
 that does not have permission to create or modify pads. A "log in" button in the
@@ -27,7 +29,8 @@ Example:
   },
   "users": {
     "guest": {
-      "displayname": "Read-Only Guest"
+      "displayname": "Read-Only Guest",
+      "readOnly": true
     }
   },
 ```
@@ -44,6 +47,10 @@ Detailed description:
       * `displayname` (optional, defaults to "Read-Only Guest"): The name that
         appears in the user drop-down list for guest users. Guests are unable to
         change the name unless this is set to `null`.
+      * `readOnly` (optional, defaults to `true`): Whether the guest user can
+        only read existing pads. If `true`, `canCreate` is ignored.
+      * `canCreate` (optional, defaults to `true`): Whether the guest user can
+        create new pads. Ignored if `readOnly` is `true`.
 
 ## Copyright and License
 

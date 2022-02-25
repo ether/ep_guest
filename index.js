@@ -1,7 +1,6 @@
 'use strict';
 
 const $ = require('cheerio');
-const assert = require('assert').strict;
 const authorManager = require('ep_etherpad-lite/node/db/AuthorManager');
 const log4js = require('ep_etherpad-lite/node_modules/log4js');
 const plugins = require('ep_etherpad-lite/static/js/pluginfw/plugin_defs');
@@ -34,8 +33,6 @@ exports.authenticate = (hookName, {req}, cb) => {
   // plugin (or to the built-in basic auth). This is what forces the real authentication.
   if (req.path === endpoint('forceauth')) return cb([]);
   req.session.user = user;
-  assert(req.session.user.readOnly);
-  assert(!req.session.user.is_admin);
   return cb([true]);
 };
 

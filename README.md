@@ -18,21 +18,25 @@ admins to relax the read-only restriction.
 
 ## Configuration
 
-Etherpad's `requireAuthentication` setting must be `true`. All ep\_guest
-settings are optional, with the defaults shown below:
+Example:
 
 ```json
+  "requireAuthentication": true,
   "ep_guest": {
     "guest_username": "guest",
     "guest_displayname": "Read-Only Guest"
   },
-  "requireAuthentication": true,
 ```
 
-* `guest_username` is the username used for the guest account.
-* `guest_displayname` is the name that appears in the user drop-down list for
-  guest users. Guests are unable to change the name unless this is set to
-  `null`.
+Detailed description:
+
+  * `requireAuthentication`: Must be explicitly set to `true` to enable this
+    plugin.
+  * `ep_guest.guest_username` (optional, defaults to `"guest"`): The username
+    used for the guest account.
+  * `ep_guest.guest_displayname` (optional, defaults to "Read-Only Guest"): The
+    name that appears in the user drop-down list for guest users. Guests are
+    unable to change the name unless this is set to `null`.
 
 ## Copyright and License
 

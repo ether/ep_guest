@@ -23,8 +23,12 @@ Example:
 ```json
   "requireAuthentication": true,
   "ep_guest": {
-    "guest_username": "guest",
-    "guest_displayname": "Read-Only Guest"
+    "guest_username": "guest"
+  },
+  "users": {
+    "guest": {
+      "displayname": "Read-Only Guest"
+    }
   },
 ```
 
@@ -33,10 +37,13 @@ Detailed description:
   * `requireAuthentication`: Must be explicitly set to `true` to enable this
     plugin.
   * `ep_guest.guest_username` (optional, defaults to `"guest"`): The username
-    used for the guest account.
-  * `ep_guest.guest_displayname` (optional, defaults to "Read-Only Guest"): The
-    name that appears in the user drop-down list for guest users. Guests are
-    unable to change the name unless this is set to `null`.
+    used for the guest account. The corresponding object in the `users` setting
+    (see below) contains settings for the guest account.
+  * `users[ep_guest.guest_username]` (optional, defaults to `{}`): Object in
+    `users` that holds settings for the guest account. Relevant properties:
+      * `displayname` (optional, defaults to "Read-Only Guest"): The name that
+        appears in the user drop-down list for guest users. Guests are unable to
+        change the name unless this is set to `null`.
 
 ## Copyright and License
 

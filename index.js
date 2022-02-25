@@ -140,15 +140,14 @@ exports.loadSettings = async (hookName, {settings}) => {
   if (settings[pluginName] == null) settings[pluginName] = {};
   const s = settings[pluginName];
   s.guest_username = s.guest_username || 'guest';
-  // Note: The guest_displayname setting distinguishes between the different falsy values:
-  //   - unset/undefined: Guest display name is hard-coded to "Read-Only Guest".
-  //   - set to null: Users can change the guest user's display name.
-  //   - empty string: The display name is hard-coded to the empty string.
-  if (s.guest_displayname === undefined) s.guest_displayname = 'Read-Only Guest';
   if (settings.users[s.guest_username] == null) settings.users[s.guest_username] = {};
   user = settings.users[s.guest_username];
   user.username = s.guest_username;
-  user.displayname = user.displayname || s.guest_displayname;
+  // Note: This plugin distinguishes between the different falsy values:
+  //   - unset/undefined: Guest display name is hard-coded to "Read-Only Guest".
+  //   - set to null: Users can change the guest user's display name.
+  //   - empty string: The display name is hard-coded to the empty string.
+  if (user.displayname === undefined) user.displayname = 'Read-Only Guest';
   user.readOnly = true;
   user.is_admin = false;
 };

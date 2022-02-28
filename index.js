@@ -83,16 +83,16 @@ exports.expressCreateServer = (hookName, {app}) => {
       // is configured to offset the Etherpad paths (e.g., /etherpad/p/foo instead of /p/foo).
       const epAndQuery = req.url.split('/').slice(-1)[0].split('?');
       epAndQuery[0] = 'forceauth';
-      req.session.destroy(() => res.redirect(epAndQuery.join('?')));
+      req.session.destroy(() => res.redirect(303, epAndQuery.join('?')));
     })().catch(next);
   });
   app.get(endpoint('forceauth'), (req, res, next) => {
     logger.debug(req.url);
-    res.redirect(req.query.redirect_uri || '..');
+    res.redirect(303, req.query.redirect_uri || '..');
   });
   app.get(endpoint('logout'), (req, res, next) => {
     logger.debug(req.url);
-    req.session.destroy(() => res.redirect(req.query.redirect_uri || '..'));
+    req.session.destroy(() => res.redirect(303, req.query.redirect_uri || '..'));
   });
 };
 

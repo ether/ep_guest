@@ -36,13 +36,13 @@ const sanitizeRedirectUrl = (url) => {
   return `${endpointToBase}${u.pathname}${u.search}${u.hash}`;
 };
 
-exports.authenticate = (hookName, {req}, cb) => {
+exports.authenticate = async (hookName, {req}) => {
   logger.debug(`${hookName} ${req.url}`);
   // If the user is visiting the 'forceauth' endpoint then fall through to the next authenticate
   // plugin (or to the built-in basic auth). This is what forces the real authentication.
-  if (req.path === endpoint('forceauth')) return cb([]);
+  if (req.path === endpoint('forceauth')) return;
   req.session.user = user;
-  return cb([true]);
+  return true;
 };
 
 exports.eejsBlock_permissionDenied = (hookName, context) => {
@@ -132,8 +132,7 @@ exports.loadSettings = async (hookName, {settings}) => {
   logger.info('guest user settings:', user);
 };
 
-exports.preAuthorize = (hookName, {req}, cb) => {
+exports.preAuthorize = async (hookName, {req}) => {
   // Don't bother logging the user in as guest if they're simply visiting the 'login' endpoint.
-  if (req.path === endpoint('login')) return cb([true]);
-  return cb([]);
+  if (req.path === endpoint('login')) return true;
 };

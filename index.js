@@ -1,12 +1,14 @@
 'use strict';
 
 const $ = require('cheerio');
-const log4js = require('ep_etherpad-lite/node_modules/log4js');
 const plugins = require('ep_etherpad-lite/static/js/pluginfw/plugin_defs');
 const util = require('util');
 
 const pluginName = 'ep_guest';
-const logger = log4js.getLogger(pluginName);
+let logger = {};
+for (const level of ['debug', 'info', 'warn', 'error']) {
+  logger[level] = console[level].bind(console, `${pluginName}:`);
+}
 let user;
 
 const endpoint = (ep) => `/${encodeURIComponent(pluginName)}/${ep}`;
@@ -106,6 +108,10 @@ exports.expressCreateServer = (hookName, {app}) => {
       res.redirect(303, sanitizeRedirectUrl(req.query.redirect_uri || '..'));
     })().catch(next);
   });
+};
+
+exports[`init_${pluginName}`] = async (hookName, {logger: l}) => {
+  if (l != null) logger = l;
 };
 
 exports.loadSettings = async (hookName, {settings}) => {

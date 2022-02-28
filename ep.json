@@ -2,16 +2,11 @@
   "parts": [
     {
       "name": "ep_guest",
-      "client_hooks": {
-        "postToolbarInit": "ep_guest/static/js/client"
-      },
       "hooks": {
         "authenticate": "",
-        "clientVars": "",
         "eejsBlock_permissionDenied": "",
         "eejsBlock_userlist": "",
         "expressCreateServer": "",
-        "handleMessage": "",
         "loadSettings": "",
         "preAuthorize": ""
       }

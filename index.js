@@ -1,7 +1,6 @@
 'use strict';
 
 const $ = require('cheerio');
-const authorManager = require('ep_etherpad-lite/node/db/AuthorManager');
 const log4js = require('ep_etherpad-lite/node_modules/log4js');
 const plugins = require('ep_etherpad-lite/static/js/pluginfw/plugin_defs');
 
@@ -34,14 +33,6 @@ exports.authenticate = (hookName, {req}, cb) => {
   if (req.path === endpoint('forceauth')) return cb([]);
   req.session.user = user;
   return cb([true]);
-};
-
-exports.clientVars = async (hookName, {socket: {client: {request: req}}}) => {
-  logger.debug(hookName);
-  const {session: {user: {username} = {}} = {}} = req;
-  const vars = {};
-  vars[pluginName] = {isGuest: username === user.username};
-  return vars;
 };
 
 exports.eejsBlock_permissionDenied = (hookName, context) => {
@@ -88,14 +79,6 @@ exports.expressCreateServer = (hookName, {app}) => {
   app.get(endpoint('login'), (req, res, next) => {
     (async () => {
       logger.debug(req.url);
-      const {user: {username} = {}} = req.session;
-      const {cookies: {token} = {}} = req;
-      if (username === user.username && token) {
-        // Clear the display name so that logged-in users don't show up as "Read-Only Guest".
-        // TODO: author ID might come from session ID, not token.
-        const authorId = await authorManager.getAuthor4Token(token);
-        await authorManager.setAuthorName(authorId, null);
-      }
       // Use a relative URL when redirecting to the 'forceauth' endpoint in case the reverse proxy
       // is configured to offset the Etherpad paths (e.g., /etherpad/p/foo instead of /p/foo).
       const epAndQuery = req.url.split('/').slice(-1)[0].split('?');
@@ -113,25 +96,6 @@ exports.expressCreateServer = (hookName, {app}) => {
   });
 };
 
-exports.handleMessage = async (hookName, ctx) => {
-  // ctx.client was renamed to ctx.socket in newer versions of Etherpad. Fall back to ctx.client in
-  // case this plugin is installed on an older version of Etherpad.
-  const {message, socket = ctx.client} = ctx;
-  logger.debug(hookName);
-  if (user.displayname == null) return;
-  const {user: {username} = {}} = socket.client.request.session;
-  if (username !== user.username) return;
-  const {type, data: {type: dType} = {}} = message || {};
-  if (type === 'CLIENT_READY') {
-    // TODO: author ID might come from session ID, not token.
-    const authorId = await authorManager.getAuthor4Token(message.token);
-    await authorManager.setAuthorName(authorId, user.displayname);
-  } else if (type === 'COLLABROOM' && dType === 'USERINFO_UPDATE') {
-    const {userInfo = {}} = message.data;
-    userInfo.name = user.displayname;
-  }
-};
-
 exports.loadSettings = async (hookName, {settings}) => {
   logger.debug(hookName);
   if (settings[pluginName] == null) settings[pluginName] = {};
@@ -141,6 +105,7 @@ exports.loadSettings = async (hookName, {settings}) => {
   if (user == null) {
     user = settings.users[s.username] = {
       displayname: 'Read-Only Guest',
+      displaynameChangeable: false,
       readOnly: true,
     };
   }

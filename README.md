@@ -38,6 +38,7 @@ The following is equivalent to the above minimal example:
   "users": {
     "guest": {
       "displayname": "Read-Only Guest",
+      "displaynameChangeable": false,
       "readOnly": true
     }
   },
@@ -52,9 +53,12 @@ The following is equivalent to the above minimal example:
     below) contains settings for the guest account.
   * `users[ep_guest.username]` (optional, default is described below): Object in
     `users` that holds settings for the guest account. Relevant properties:
-      * `displayname` (optional): The name that appears in the user drop-down
-        list for guest users. Guests are unable to change the name unless this
-        is set to `null`.
+      * `displayname` (optional): See the
+        [ep\_user\_displayname](https://github.com/ether/ep_user_displayname#configuration)
+        plugin.
+      * `displaynameChangeable` (optional): See the
+        [ep\_user\_displayname](https://github.com/ether/ep_user_displayname#configuration)
+        plugin.
       * `readOnly` (optional): See [Etherpad's `settings.json`
         documentation](https://github.com/ether/etherpad-lite/blob/1.8.17/settings.json.template#L446-L447).
       * `canCreate` (optional): See [Etherpad's `settings.json`
@@ -68,6 +72,7 @@ guest user, an object like the following is used:
 ```json
 {
   "displayname": "Read-Only Guest",
+  "displaynameChangeable": false,
   "readOnly": true
 }
 ```

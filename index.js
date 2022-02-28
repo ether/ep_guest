@@ -3,6 +3,7 @@
 const $ = require('cheerio');
 const log4js = require('ep_etherpad-lite/node_modules/log4js');
 const plugins = require('ep_etherpad-lite/static/js/pluginfw/plugin_defs');
+const util = require('util');
 
 const pluginName = 'ep_guest';
 const logger = log4js.getLogger(pluginName);
@@ -83,7 +84,8 @@ exports.expressCreateServer = (hookName, {app}) => {
       // is configured to offset the Etherpad paths (e.g., /etherpad/p/foo instead of /p/foo).
       const epAndQuery = req.url.split('/').slice(-1)[0].split('?');
       epAndQuery[0] = 'forceauth';
-      req.session.destroy(() => res.redirect(303, epAndQuery.join('?')));
+      await util.promisify(req.session.destroy.bind(req.session))();
+      res.redirect(303, epAndQuery.join('?'));
     })().catch(next);
   });
   app.get(endpoint('forceauth'), (req, res, next) => {
@@ -91,8 +93,11 @@ exports.expressCreateServer = (hookName, {app}) => {
     res.redirect(303, req.query.redirect_uri || '..');
   });
   app.get(endpoint('logout'), (req, res, next) => {
-    logger.debug(req.url);
-    req.session.destroy(() => res.redirect(303, req.query.redirect_uri || '..'));
+    (async () => {
+      logger.debug(req.url);
+      await util.promisify(req.session.destroy.bind(req.session))();
+      res.redirect(303, req.query.redirect_uri || '..');
+    })().catch(next);
   });
 };
 

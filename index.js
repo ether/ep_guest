@@ -10,6 +10,7 @@ const logger = log4js.getLogger(pluginName);
 let user;
 
 const endpoint = (ep) => `/${encodeURIComponent(pluginName)}/${ep}`;
+const endpointToBase = '..';
 
 const makeLogInOutButton = (req) => {
   const {user: {username} = {}} = req.session;
@@ -25,6 +26,12 @@ const makeLogInOutButton = (req) => {
           .addClass('btn-primary')
           .attr('data-l10n-id', `${pluginName}_${ep}`)
           .text(buttonText));
+};
+
+// Prevent open redirectors: https://cwe.mitre.org/data/definitions/601.html
+const sanitizeRedirectUrl = (url) => {
+  const u = new URL(url, new URL(endpoint('ignored'), 'http://localhost'));
+  return `${endpointToBase}${u.pathname}${u.search}${u.hash}`;
 };
 
 exports.authenticate = (hookName, {req}, cb) => {
@@ -90,13 +97,13 @@ exports.expressCreateServer = (hookName, {app}) => {
   });
   app.get(endpoint('forceauth'), (req, res, next) => {
     logger.debug(req.url);
-    res.redirect(303, req.query.redirect_uri || '..');
+    res.redirect(303, sanitizeRedirectUrl(req.query.redirect_uri || '..'));
   });
   app.get(endpoint('logout'), (req, res, next) => {
     (async () => {
       logger.debug(req.url);
       await util.promisify(req.session.destroy.bind(req.session))();
-      res.redirect(303, req.query.redirect_uri || '..');
+      res.redirect(303, sanitizeRedirectUrl(req.query.redirect_uri || '..'));
     })().catch(next);
   });
 };

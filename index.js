@@ -137,15 +137,14 @@ exports.loadSettings = async (hookName, {settings}) => {
   if (settings[pluginName] == null) settings[pluginName] = {};
   const s = settings[pluginName];
   s.username = s.username || 'guest';
-  if (settings.users[s.username] == null) settings.users[s.username] = {};
   user = settings.users[s.username];
+  if (user == null) {
+    user = settings.users[s.username] = {
+      displayname: 'Read-Only Guest',
+      readOnly: true,
+    };
+  }
   user.username = s.username;
-  // Note: This plugin distinguishes between the different falsy values:
-  //   - unset/undefined: Guest display name is hard-coded to "Read-Only Guest".
-  //   - set to null: Users can change the guest user's display name.
-  //   - empty string: The display name is hard-coded to the empty string.
-  if (user.displayname === undefined) user.displayname = 'Read-Only Guest';
-  if (user.readOnly == null) user.readOnly = true;
 };
 
 exports.preAuthorize = (hookName, {req}, cb) => {

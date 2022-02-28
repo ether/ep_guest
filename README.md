@@ -9,18 +9,26 @@ another authentication plugin such as
 [ep\_openid\_connect](https://www.npmjs.com/package/ep_openid_connect).
 
 When a user first visits Etherpad, they will be "authenticated" as a guest user
-that does not have permission to create or modify pads. A "log in" button in the
-user drop-down list forces the user to authenticate via Etherpad's built-in HTTP
+with permissions configured by the administrator. A "log in" button in the user
+drop-down list forces the user to authenticate via Etherpad's built-in HTTP
 basic authentication or via an authentication plugin (if one is installed).
 After logging in, the "log in" button becomes a "log out" button.
 
 This is a fork of
 [ep\_readonly\_guest](https://github.com/ether/ep_readonly_guest) that allows
-admins to relax the read-only restriction.
+admins to relax that plugin's read-only restriction.
 
 ## Configuration
 
-Example:
+#### Minimal Example
+
+```json
+  "requireAuthentication": true,
+```
+
+#### Full Example
+
+The following is equivalent to the above minimal example:
 
 ```json
   "requireAuthentication": true,
@@ -35,7 +43,7 @@ Example:
   },
 ```
 
-Detailed description:
+#### Details
 
   * `requireAuthentication`: Must be explicitly set to `true` to enable this
     plugin.
@@ -47,10 +55,12 @@ Detailed description:
       * `displayname` (optional, defaults to "Read-Only Guest"): The name that
         appears in the user drop-down list for guest users. Guests are unable to
         change the name unless this is set to `null`.
-      * `readOnly` (optional, defaults to `true`): Whether the guest user can
-        only read existing pads. If `true`, `canCreate` is ignored.
-      * `canCreate` (optional, defaults to `true`): Whether the guest user can
-        create new pads. Ignored if `readOnly` is `true`.
+      * `readOnly` (optional, defaults to `true`): See [Etherpad's
+        `settings.json`
+        documentation](https://github.com/ether/etherpad-lite/blob/1.8.17/settings.json.template#L446-L447).
+      * `canCreate` (optional, defaults to `true`): See [Etherpad's
+        `settings.json`
+        documentation](https://github.com/ether/etherpad-lite/blob/1.8.17/settings.json.template#L448-L449).
 
 ## Copyright and License
 

@@ -38,6 +38,7 @@ const sanitizeRedirectUrl = (url) => {
 
 exports.authenticate = async (hookName, {req}) => {
   logger.debug(`${hookName} ${req.url}`);
+  if (user == null) return;
   // If the user is visiting the 'forceauth' endpoint then fall through to the next authenticate
   // plugin (or to the built-in basic auth). This is what forces the real authentication.
   if (req.path === endpoint('forceauth')) return;
@@ -47,6 +48,7 @@ exports.authenticate = async (hookName, {req}) => {
 
 exports.eejsBlock_permissionDenied = (hookName, context) => {
   logger.debug(hookName);
+  if (user == null) return;
   // Load the HTML into a throwaway div instead of calling $.load() to avoid
   // https://github.com/cheeriojs/cheerio/issues/1031
   const content = $('<div>').html(context.content);
@@ -59,6 +61,7 @@ exports.eejsBlock_permissionDenied = (hookName, context) => {
 
 exports.eejsBlock_userlist = (hookName, context) => {
   logger.debug(hookName);
+  if (user == null) return;
   // Load the HTML into a throwaway div instead of calling $.load() to avoid
   // https://github.com/cheeriojs/cheerio/issues/1031
   const content = $('<div>').html(context.content);
@@ -71,6 +74,7 @@ exports.eejsBlock_userlist = (hookName, context) => {
 // installing a plugin from the admin page.
 exports.expressCreateServer = (hookName, {app}) => {
   logger.debug(hookName);
+  if (user == null) return;
   // Make sure this plugin's authenticate function is called before any other plugin's authenticate
   // function, otherwise users will not be able to visit pads as the guest user.
   plugins.hooks.authenticate.sort((a, b) => a.part.name === pluginName ? -1 : 0);
@@ -116,6 +120,11 @@ exports[`init_${pluginName}`] = async (hookName, {logger: l}) => {
 
 exports.loadSettings = async (hookName, {settings}) => {
   logger.debug(hookName);
+  user = null;
+  if (!settings.requireAuthentication) {
+    logger.warn('disabled because requireAuthentication is false');
+    return;
+  }
   if (settings[pluginName] == null) settings[pluginName] = {};
   const s = settings[pluginName];
   s.username = s.username || 'guest';
@@ -133,6 +142,7 @@ exports.loadSettings = async (hookName, {settings}) => {
 };
 
 exports.preAuthorize = async (hookName, {req}) => {
+  if (user == null) return;
   // Don't bother logging the user in as guest if they're simply visiting the 'login' endpoint.
   if (req.path === endpoint('login')) return true;
 };

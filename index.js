@@ -128,6 +128,8 @@ exports.loadSettings = async (hookName, {settings}) => {
     };
   }
   user.username = s.username;
+  logger.info('configured:', s);
+  logger.info('guest user settings:', user);
 };
 
 exports.preAuthorize = (hookName, {req}, cb) => {

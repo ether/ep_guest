@@ -1,0 +1,9 @@
+{
+	"@metadata": {
+		"authors": [
+			"F Samaritani"
+		]
+	},
+	"ep_guest_login": "Intra",
+	"ep_guest_logout": "Bessi"
+}

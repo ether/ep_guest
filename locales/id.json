@@ -1,0 +1,9 @@
+{
+	"@metadata": {
+		"authors": [
+			"Farras"
+		]
+	},
+	"ep_guest_login": "Masuk Log",
+	"ep_guest_logout": "Keluar Log"
+}

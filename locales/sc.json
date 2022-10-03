@@ -1,0 +1,9 @@
+{
+	"@metadata": {
+		"authors": [
+			"Adr mm"
+		]
+	},
+	"ep_guest_login": "Intra",
+	"ep_guest_logout": "Essi"
+}

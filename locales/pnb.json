@@ -1,9 +1,10 @@
 {
 	"@metadata": {
 		"authors": [
-			"Abbas dhothar"
+			"Abbas dhothar",
+			"Bgo eiu"
 		]
 	},
-	"ep_guest_login": "لاگ ان",
+	"ep_guest_login": "لَوگ اِین کرو",
 	"ep_guest_logout": "باہر آؤ"
 }

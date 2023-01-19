@@ -1,0 +1,9 @@
+{
+	"@metadata": {
+		"authors": [
+			"McDutchie"
+		]
+	},
+	"ep_guest_login": "Aperir session",
+	"ep_guest_logout": "Clauder session"
+}

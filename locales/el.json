@@ -1,0 +1,9 @@
+{
+	"@metadata": {
+		"authors": [
+			"Norhorn"
+		]
+	},
+	"ep_guest_login": "Σύνδεση",
+	"ep_guest_logout": "Αποσύνδεση"
+}

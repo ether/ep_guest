@@ -1,0 +1,9 @@
+{
+	"@metadata": {
+		"authors": [
+			"Jon Harald Søby"
+		]
+	},
+	"ep_guest_login": "Logg inn",
+	"ep_guest_logout": "Logg ut"
+}

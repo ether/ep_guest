@@ -20,7 +20,7 @@
   },
   "homepage": "https://github.com/ether/ep_guest#readme",
   "dependencies": {
-    "cheerio": "^0.22.0"
+    "cheerio": "^1.0.0-rc.12"
   },
   "funding": {
     "type": "individual",

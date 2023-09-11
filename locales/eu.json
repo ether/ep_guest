@@ -1,9 +1,10 @@
 {
 	"@metadata": {
 		"authors": [
+			"Atzerritik",
 			"Izendegi"
 		]
 	},
-	"ep_guest_login": "Hasi saioa",
-	"ep_guest_logout": "Itxi saioa"
+	"ep_guest_login": "Saioa hasi",
+	"ep_guest_logout": "Saioa itxi"
 }

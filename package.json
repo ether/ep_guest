@@ -1,6 +1,6 @@
 {
   "name": "ep_guest",
-  "version": "1.0.21",
+  "version": "1.0.22",
   "description": "Etherpad plugin to grant limited access to users that are not logged in.",
   "main": "index.js",
   "repository": {

@@ -51,7 +51,7 @@ exports.eejsBlock_permissionDenied = (hookName, context) => {
   if (user == null) return;
   // Load the HTML into a throwaway div instead of calling $.load() to avoid
   // https://github.com/cheeriojs/cheerio/issues/1031
-  const content = $.load('<div>', null, false).html(context.content);
+  const content = $.load('')('<div/>').html(context.content);
   content.find('#permissionDenied')
       .prepend(makeLogInOutButton(context.renderContext.req)
           .css('float', 'right')
@@ -64,7 +64,7 @@ exports.eejsBlock_userlist = (hookName, context) => {
   if (user == null) return;
   // Load the HTML into a throwaway div instead of calling $.load() to avoid
   // https://github.com/cheeriojs/cheerio/issues/1031
-  const content = $('<div>').html(context.content);
+  const content = $.load('')('<div/>').html(context.content);
   content.find('#myuser').append(
       makeLogInOutButton(context.renderContext.req).css('margin-left', '10px'));
   context.content = content.html();

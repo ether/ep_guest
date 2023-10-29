@@ -20,9 +20,9 @@ const makeLogInOutButton = (req) => {
   const ep = isGuest ? 'login' : 'logout';
   const buttonUri = `${endpoint(ep)}?redirect_uri=${encodeURIComponent(req.url)}`;
   const buttonText = isGuest ? 'Log In' : 'Log Out';
-  return $('<div>')
+  return $.load('')('<div/>')
       .addClass('btn-container')
-      .append($('<a>')
+      .append($.load('')('<a/>')
           .attr('href', buttonUri)
           .addClass('btn')
           .addClass('btn-primary')

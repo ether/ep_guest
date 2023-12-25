@@ -1,7 +1,9 @@
 {
 	"@metadata": {
-		"authors": []
+		"authors": [
+			"McDutchie"
+		]
 	},
-	"ep_guest_login": "Inloggen",
+	"ep_guest_login": "Aanmelden",
 	"ep_guest_logout": "Afmelden"
 }

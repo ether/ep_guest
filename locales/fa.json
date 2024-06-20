@@ -1,0 +1,9 @@
+{
+	"@metadata": {
+		"authors": [
+			"Darafsh"
+		]
+	},
+	"ep_guest_login": "ورود",
+	"ep_guest_logout": "خروج"
+}

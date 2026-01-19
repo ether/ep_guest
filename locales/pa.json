@@ -4,5 +4,6 @@
 			"Cabal"
 		]
 	},
-	"ep_guest_login": "ਦਾਖ਼ਲ ਹੋਵੋ"
+	"ep_guest_login": "ਦਾਖ਼ਲ ਹੋਵੋ",
+	"ep_guest_logout": "ਬਾਹਰ ਆਓ"
 }

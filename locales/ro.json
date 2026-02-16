@@ -1,0 +1,9 @@
+{
+	"@metadata": {
+		"authors": [
+			"SZ475"
+		]
+	},
+	"ep_guest_login": "Autentificare",
+	"ep_guest_logout": "Deconectare"
+}

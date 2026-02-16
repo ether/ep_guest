@@ -1,0 +1,9 @@
+{
+	"@metadata": {
+		"authors": [
+			"Peterleth"
+		]
+	},
+	"ep_guest_login": "Log ind",
+	"ep_guest_logout": "Log ud"
+}

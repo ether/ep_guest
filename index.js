@@ -42,6 +42,13 @@ exports.authenticate = async (hookName, {req}) => {
   // If the user is visiting the 'forceauth' endpoint then fall through to the next authenticate
   // plugin (or to the built-in basic auth). This is what forces the real authentication.
   if (req.path === endpoint('forceauth')) return;
+  // Defer to other authn plugins / built-in basic auth when the request
+  // targets the admin pages or carries an explicit Authorization header.
+  // Otherwise a user attempting to log in as a real admin against
+  // /admin/login would be silently logged in as guest (without admin
+  // rights), producing the "Login Failed" redirect loop reported in #85.
+  if (req.path.startsWith('/admin')) return;
+  if (req.headers.authorization) return;
   req.session.user = user;
   return true;
 };
